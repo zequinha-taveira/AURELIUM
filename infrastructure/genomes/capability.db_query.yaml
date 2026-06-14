@@ -1,0 +1,15 @@
+id: "capability.db_query"
+name: "Database Query"
+version: "1.0.0"
+description: "Executes a query against the primary PostgreSQL database"
+behaviors:
+  - name: "execute_sql"
+    description: "Run query and retrieve rows"
+metrics:
+  - name: "latency_ms"
+    type: "latency"
+    target: 50.0
+dependencies: []
+constraints:
+  - type: "concurrency_limit"
+    value: "100"

@@ -1,0 +1,15 @@
+id: "capability.auth_validate"
+name: "Auth Validation"
+version: "1.0.0"
+description: "Validates API tokens and user sessions"
+behaviors:
+  - name: "validate_token"
+    description: "Check if the token is active and valid"
+metrics:
+  - name: "validation_time_ms"
+    type: "latency"
+    target: 10.0
+dependencies: []
+constraints:
+  - type: "token_type"
+    value: "JWT"

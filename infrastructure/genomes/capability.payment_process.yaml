@@ -1,0 +1,17 @@
+id: "capability.payment_process"
+name: "Payment Processing"
+version: "1.0.0"
+description: "Validates credentials and processes billing transactions"
+behaviors:
+  - name: "charge"
+    description: "Executes credit card charging"
+metrics:
+  - name: "charge_latency_ms"
+    type: "latency"
+    target: 200.0
+dependencies:
+  - "capability.auth_validate"
+  - "capability.db_query"
+constraints:
+  - type: "concurrency_limit"
+    value: "50"
