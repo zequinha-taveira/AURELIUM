@@ -2,6 +2,7 @@ import asyncio
 import asyncpg
 from nats.aio.client import Client as NATSClient
 
+
 class AureliumClient:
     def __init__(self, nats_url: str, db_url: str):
         self.nats_url = nats_url
