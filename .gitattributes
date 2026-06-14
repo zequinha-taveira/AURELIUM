@@ -1,0 +1,30 @@
+# Set default behavior to automatically normalize line endings.
+* text=auto eol=lf
+
+# Force LF for shell scripts and config files
+*.sh text eol=lf
+*.bash text eol=lf
+
+# Keep Windows-specific files with CRLF if needed (e.g. batch files)
+*.bat text eol=crlf
+*.cmd text eol=crlf
+
+# Denote binary files (so they aren't modified by line ending conversion)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary
+
+# Syntax highlighting and git diff hints
+*.ts text
+*.tsx text
+*.js text
+*.jsx text
+*.json text
+*.rs text
+*.py text
+*.md text

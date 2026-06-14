@@ -1,0 +1,62 @@
+version: "3.9"
+
+services:
+
+  postgres:
+    image: postgres:17
+    container_name: aurelium-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: aurelium
+      POSTGRES_USER: aurelium
+      POSTGRES_PASSWORD: aurelium
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+  neo4j:
+    image: neo4j:5
+    container_name: aurelium-neo4j
+    restart: unless-stopped
+    environment:
+      NEO4J_AUTH: neo4j/aurelium
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    volumes:
+      - neo4j_data:/data
+
+  nats:
+    image: nats:latest
+    container_name: aurelium-nats
+    ports:
+      - "4222:4222"
+      - "8222:8222"
+
+  qdrant:
+    image: qdrant/qdrant
+    container_name: aurelium-qdrant
+    ports:
+      - "6333:6333"
+    volumes:
+      - qdrant_data:/qdrant/storage
+
+  minio:
+    image: minio/minio
+    container_name: aurelium-minio
+    command: server /data --console-address ":9001"
+    environment:
+      MINIO_ROOT_USER: aurelium
+      MINIO_ROOT_PASSWORD: aurelium123
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - minio_data:/data
+
+volumes:
+  postgres_data:
+  neo4j_data:
+  qdrant_data:
+  minio_data:
