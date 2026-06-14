@@ -6,5 +6,6 @@ members = [
     "core/intent-core",
     "swarm/coordination-engine",
     "core/semantic-genome",
+    "core/evolution-engine",
 ]
 

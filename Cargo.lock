@@ -113,6 +113,25 @@ dependencies = [
 ]
 
 [[package]]
+name = "aurelium-evolution-engine"
+version = "0.1.0"
+dependencies = [
+ "async-nats",
+ "aurelium-sdk",
+ "futures",
+ "rand 0.8.6",
+ "reqwest",
+ "serde",
+ "serde_json",
+ "serde_yaml",
+ "sqlx",
+ "tokio",
+ "tracing",
+ "tracing-subscriber",
+ "uuid",
+]
+
+[[package]]
 name = "aurelium-gateway"
 version = "0.1.0"
 dependencies = [
